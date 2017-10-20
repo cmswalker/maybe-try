@@ -1,0 +1,36 @@
+{
+  "name": "maybe-try",
+  "version": "1.0.0",
+  "description": "Asynchronous Javascript Monad Handler",
+  "main": "./build/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.5.2",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-env": "^1.5.1",
+    "eslint": "^3.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "gulp": "^3.9.1",
+    "gulp-umd": "^0.2.0",
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "build": "babel lib -d dist && node build.js",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmswalker/maybe-try.git"
+  },
+  "author": "cmswalker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cmswalker/maybe-try/issues"
+  },
+  "homepage": "https://github.com/cmswalker/maybe-try#readme"
+}
