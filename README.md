@@ -1,10 +1,10 @@
-# maybe-not :see_no_evil:
+# maybe-try :see_no_evil:
 
 Dependency-free Asynchronous JavaScript Maybe Monad
 
 Node and Browser Compatible
 
-View on [NPM](https://www.npmjs.com/package/maybe-not)
+View on [NPM](https://www.npmjs.com/package/maybe-try)
 
 ```bash
 npm install maybe-not
@@ -12,11 +12,13 @@ npm install maybe-not
 
 ## Usage
 
-### The module exposes 2 methods, one for callbacks and one for promises. Node and Browser compatible
-### Each method takes 2 parameters, the fallbackValue for error scenarios, and a function.
-### Both parameters are **REQUIRED**, maybe-try does not supply a default value for you
+The module exposes 2 methods, one for callbacks and one for promises.
 
-#### More in-depth examples can be found [here](https://github.com/cmswalker/maybe-try/blob/master/examples)
+Each method takes 2 parameters, the fallbackValue for error scenarios, and a function.
+
+Both parameters are **REQUIRED**, maybe-try does not supply a default value for you
+
+More in-depth examples can be found [here](https://github.com/cmswalker/maybe-try/blob/master/examples)
 
 ```js
 const maybeTry = require('maybe-try');
