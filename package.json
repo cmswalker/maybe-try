@@ -1,6 +1,6 @@
 {
   "name": "maybe-try",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Asynchronous Javascript Monad Handler",
   "main": "./build/index.js",
   "directories": {
@@ -19,6 +19,17 @@
     "gulp-umd": "^0.2.0",
     "mocha": "^4.0.1"
   },
+  "keywords": [
+    "maybe",
+    "try",
+    "maybe-try",
+    "monad",
+    "maybe monad",
+    "async",
+    "error handling",
+    "promise",
+    "callback"
+  ],
   "scripts": {
     "build": "babel lib -d dist && node build.js",
     "test": "mocha"
