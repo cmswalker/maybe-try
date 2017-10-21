@@ -7,7 +7,7 @@ Node and Browser Compatible
 View on [NPM](https://www.npmjs.com/package/maybe-try)
 
 ```bash
-npm install maybe-not
+npm install maybe-try
 ```
 
 ## Usage

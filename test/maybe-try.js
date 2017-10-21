@@ -25,7 +25,7 @@ const callbackFactory = (forceErr, callback) => {
 };
 
 describe('maybeTry', function() {
-  context('Function returning promises', () => {
+  context('With function-returning-promises', () => {
     it('Should handle success case', done => {
       maybeTry.promise(null, promiseFactory).then(({ error, result }) => {
         assert.ok(!error);
