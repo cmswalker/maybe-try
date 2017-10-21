@@ -1,6 +1,6 @@
 {
   "name": "maybe-try",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Asynchronous Javascript Monad Handler",
   "main": "./build/index.js",
   "directories": {
