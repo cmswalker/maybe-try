@@ -18,6 +18,8 @@ Each method takes 2 parameters, the fallbackValue for error scenarios, and a fun
 
 Both parameters are **REQUIRED**, maybe-try does not supply a default value for you
 
+Retuns an object with caught errors (if any) and either the result or fallbackValue, depending on success
+
 More in-depth examples can be found [here](https://github.com/cmswalker/maybe-try/blob/master/examples)
 
 ```js
@@ -26,7 +28,7 @@ const maybeTry = require('maybe-try');
 // Synchronous Version
 
 const data = '[object Object]';
-const dataIsValid = functionThatAssumesDataIsArray(data);
+const dataIsValid = maybeTry.catch(false, functionThatAssumesDataIsArray(data));
 
 // Promise Version
 
