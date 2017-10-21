@@ -1,6 +1,6 @@
 {
   "name": "maybe-try",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A declarative sync & async js maybe monad that notes something may fail",
   "main": "./build/index.js",
   "directories": {
