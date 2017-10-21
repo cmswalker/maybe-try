@@ -8,7 +8,8 @@
  */
 var maybeTry = {
   promise: promise,
-  callback: callback
+  callback: callback,
+  catch: catchMethod
 };
 
 if (typeof module !== 'undefined') {
@@ -59,6 +60,10 @@ function promise(fallbackValue, method) {
  * @returns Function
  */
 function callback(fallbackValue, method) {
+  if (fallbackValue === undefined) {
+    return fallBackError();
+  }
+
   if (typeof method !== "function") {
     return new Error("Must pass a callback-function");
   }
@@ -69,5 +74,29 @@ function callback(fallbackValue, method) {
     }
 
     return method(null, responseFactory(err, result));
+  };
+}
+
+function catchMethod(fallbackValue, method) {
+  if (fallbackValue === undefined) {
+    return fallBackError();
+  }
+
+  if (typeof method !== "function") {
+    return new Error("Must pass a callback-function");
+  }
+
+  var result = void 0;
+  var error = void 0;
+  try {
+    result = method();
+  } catch (e) {
+    error = e;
+    result = fallbackValue;
+  }
+
+  return {
+    error: error,
+    result: result
   };
 }

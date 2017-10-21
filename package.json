@@ -1,7 +1,7 @@
 {
   "name": "maybe-try",
   "version": "1.0.4",
-  "description": "Asynchronous Javascript Monad Handler",
+  "description": "A declarative sync & async js maybe monad that notes something may fail",
   "main": "./build/index.js",
   "directories": {
     "test": "test"
@@ -20,12 +20,19 @@
     "mocha": "^4.0.1"
   },
   "keywords": [
+    "declarative",
     "maybe",
-    "try",
-    "maybe-try",
     "monad",
     "maybe monad",
+    "try",
+    "catch",
+    "try catch",
+    "fail",
+    "maybe-try",
+    "sync",
+    "synchronous",
     "async",
+    "asynchronous",
     "error handling",
     "promise",
     "callback"

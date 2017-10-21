@@ -11,6 +11,22 @@ const callbackFactory = (forceErr, callback) => {
   callback(null, SUCCESS);
 };
 
+// Synchrouns Version
+
+const data = '[object Object]';
+// No need to handle try/catches here, maybeTry resolves both the runtime error and our fallback value
+const dataIsValid = checkIfDataIsValid(data);
+console.log('Synchronous Result', dataIsValid);
+
+function checkIfDataIsValid(data) {
+  return maybeTry.catch(false, function() {
+    console.log('incomingData', data);
+    // Will break at runtime as we're trying to operate Array method on String
+    return data.filter((key) => {
+      return !!data[key];
+    });
+  });
+}
 
 // Promise Version
 

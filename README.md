@@ -1,6 +1,6 @@
 # maybe-try :see_no_evil:
 
-Dependency-free Asynchronous JavaScript Maybe Monad
+A declarative sync & async js maybe monad that notes something may fail
 
 Node and Browser Compatible
 
@@ -12,7 +12,7 @@ npm install maybe-try
 
 ## Usage
 
-The module exposes 2 methods, one for callbacks and one for promises.
+The module exposes 3 methods, one for synchronous operations, one for promises, and one for callbacks.
 
 Each method takes 2 parameters, the fallbackValue for error scenarios, and a function.
 
@@ -22,6 +22,11 @@ More in-depth examples can be found [here](https://github.com/cmswalker/maybe-tr
 
 ```js
 const maybeTry = require('maybe-try');
+
+// Synchronous Version
+
+const data = '[object Object]';
+const dataIsValid = functionThatAssumesDataIsArray(data);
 
 // Promise Version
 

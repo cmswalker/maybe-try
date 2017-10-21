@@ -24,6 +24,16 @@ const callbackFactory = (forceErr, callback) => {
   callback(null, SUCCESS);
 };
 
+const catchFactory = (forceErr) => {
+  return () => {
+    if (forceErr) {
+      return notAFunction();
+    }
+
+    return 'foo bar'.replace('bar', 'baz');
+  }
+}
+
 describe('maybeTry', function() {
   context('With function-returning-promises', () => {
     it('Should handle success case', done => {
@@ -70,6 +80,25 @@ describe('maybeTry', function() {
           done();
         })
       );
+    });
+  });
+
+  context('With Synchronous Catch', () => {
+    it('Should hanlde success case', () => {
+      const response = maybeTry.catch(null, catchFactory(false));
+      const { result, error } = response;
+      assert.ok(!error);
+      assert.equal(result, 'foo baz');
+    });
+
+    it('Should hanlde error case', () => {
+      const response = maybeTry.catch('bar', catchFactory(true));
+      const { result, error } = response;
+      assert.ok(error);
+
+      const { message } = error;
+      assert.equal(message, 'notAFunction is not defined')
+      assert.equal(result, 'bar');
     });
   });
 });
