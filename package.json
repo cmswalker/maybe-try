@@ -2,7 +2,7 @@
   "name": "maybe-try",
   "version": "1.0.8",
   "description": "A declarative sync & async js maybe monad that notes something may fail",
-  "main": "./dist/index.js",
+  "main": "./dist/maybe-try.js",
   "directories": {
     "test": "test"
   },
@@ -23,8 +23,6 @@
     "babel-preset-env": "^1.5.1",
     "eslint": "^3.10.0",
     "eslint-config-airbnb": "^16.1.0",
-    "gulp": "^3.9.1",
-    "gulp-umd": "^0.2.0",
     "mocha": "^4.0.1"
   },
   "keywords": [

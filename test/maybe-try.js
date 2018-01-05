@@ -102,7 +102,7 @@ describe('maybeTry', function() {
     });
   });
 
-  context.only('With registerErrorHandler, a user-provided errorHandler gets called with the error context', () => {
+  context('With registerErrorHandler, a user-provided errorHandler gets called with the error context', () => {
     let calledHandler;
 
     beforeEach(() => {

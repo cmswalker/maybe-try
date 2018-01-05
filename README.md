@@ -1,6 +1,5 @@
 # maybe-try :see_no_evil:
-
-A declarative sync & async js maybe monad that notes something may fail
+A declarative sync & async js maybe that notes something may fail
 
 Node and Browser Compatible
 
@@ -63,4 +62,33 @@ fetchFriendsForUser(1, maybeTry.callback(cbFallbackValue, (err, { error, result 
   return result; // fallbackValue (everything's ok, at least we have Tom)
 }));
 
+```
+
+## Registering an errorHandler
+
+This is an optional feature within the API to register a function to handle errors for all occurances within the module
+It's useful if you'd like to only stick to the happy path with your application logic but say, send logs to an external service when errors do occur
+
+It should be noted that the errorHandler is a fire and forget method. You cannot chain to it or call it explicitly. For that behaviour, you should be handling errors in the response body in the standard implementations above.
+
+Example using the Syncronous Version
+
+```js
+const logger = (error) => {
+  logErrorsToAnExternalService(error);
+}
+const errorHandler = error => {
+  const { message } = error;
+  console.log('An Error was caught from maybe-try', error);
+  logger(error);
+};
+
+maybeTry.registerErrorHandler(errorHandler);
+
+// The API remains the same, but the errorHandler will be firing in the background
+const data = 'some string';
+const dataIsValid = maybeTry.catch(false, functionThatOperatesOnDataAsIfItWereAnArray(data));
+// at this point, logger() has been called
+
+const { error, result } = dataIsValid;
 ```
