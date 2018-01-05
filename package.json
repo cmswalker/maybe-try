@@ -1,6 +1,6 @@
 {
   "name": "maybe-try",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A declarative sync & async js maybe that denotes something may fail",
   "main": "./dist/maybe-try.js",
   "directories": {
