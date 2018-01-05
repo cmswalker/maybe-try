@@ -1,14 +1,13 @@
 {
-    "plugins": [],
+    "plugins": ["add-module-exports"],
     "presets": [
         [
             "env",
             {
                 "targets": {
                     "browsers": [
-                        "last 3 versions"
-                    ],
-                    "ie": 10
+                        "last 2 versions"
+                    ]
                 },
                 "debug": true
             }

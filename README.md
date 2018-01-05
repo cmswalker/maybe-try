@@ -27,36 +27,40 @@ const maybeTry = require('maybe-try');
 
 // Synchronous Version
 
-const data = '[object Object]';
-const dataIsValid = maybeTry.catch(false, functionThatAssumesDataIsArray(data));
+const data = 'some string';
+const dataIsValid = maybeTry.catch(false, functionThatOperatesOnDataAsIfItWereAnArray(data));
+const { error, result } = dataIsValid;
+// No need to run try/catches in your code blocks, maybeTry resolves the caught error and result with assignment
 
 // Promise Version
 
 function fetchReviewsForProduct(productId) {
-  const fallbackValue = [{ rating: '5' }];
+  const fallbackValue = [{ rating: 5 }];
 
   return maybeTry.promise(fallbackValue, getReviewsPromise)
-    .then((response) => {
+    .then(({ error, result }) => {
       // No need to handle catches here, maybeTry resolves both the db error and our fallback value
       // Decide what you'd like to do with the error from here, either ignore and use the fallback value, or handle it manually
+      // However, you still have access to the error in the response body should you need it
 
       // Access both the result and the error on response
-      console.log('Promise Response', response);
-      return response.result; // fallbackValue
+      console.log('Promise Response', result);
+      return result; // fallbackValue ([{ rating: 5 }])
     });
 }
 
 // Callback Version
 
 const cbFallbackValue = [{ name: 'Tom' }];
-fetchFriendsForUser(1, maybeTry.callback(cbFallbackValue, (err, response) => {
+fetchFriendsForUser(1, maybeTry.callback(cbFallbackValue, (err, { error, result }) => {
   // No need to handle errors here, maybeTry resolves both the db error and our fallback value
   // The first argument (err) will always be null to keep with error-first callback patterns
+  // However, you still have access to the error in the response body should you need it
 
   // Decide what you'd like to do with the error from here, either ignore and use the fallback value, or handle it manually
   // Access both the result and the error on response
-  console.log('Callback Response', response);
-  return response.result; // fallbackValue (everything's ok, at least we have Tom)
+  console.log('Callback Response', result);
+  return result; // fallbackValue (everything's ok, at least we have Tom)
 }));
 
 ```

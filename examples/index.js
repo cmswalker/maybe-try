@@ -11,9 +11,9 @@ const callbackFactory = (forceErr, callback) => {
   callback(null, SUCCESS);
 };
 
-// Synchrouns Version
+// Synchronous Version
 
-const data = '[object Object]';
+const data = 'some string';
 // No need to handle try/catches here, maybeTry resolves both the runtime error and our fallback value
 const dataIsValid = checkIfDataIsValid(data);
 console.log('Synchronous Result', dataIsValid);
